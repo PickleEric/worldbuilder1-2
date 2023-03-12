@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { auth, firestore } from "./firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
+import firebase from "firebase/app"
 
-const LoginLogoutRegistration = () => {
+const Login = () => {
   const [user, loading, error] = useAuthState(auth);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -47,25 +48,27 @@ const LoginLogoutRegistration = () => {
       ) : (
         <div>
           <button onClick={signInWithGoogle}>Sign in with Google</button>
-          <form onSubmit={handleSubmit}>
-            <label>
-              Email:
-              <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-            </label>
-            <label>
-              Password:
-              <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-            </label>
-            <label>
-              Display Name:
-              <input type="text" value={displayName} onChange={(e) => setDisplayName(e.target.value)} />
-            </label>
-            <button type="submit">Register</button>
-          </form>
+          {!user && (
+            <form onSubmit={handleSubmit}>
+              <label>
+                Email:
+                <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+              </label>
+              <label>
+                Password:
+                <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+              </label>
+              <label>
+                Display Name:
+                <input type="text" value={displayName} onChange={(e) => setDisplayName(e.target.value)} />
+              </label>
+              <button type="submit">Register</button>
+            </form>
+          )}
         </div>
       )}
     </div>
   );
 };
 
-export default LoginLogoutRegistration;
+export default Login;

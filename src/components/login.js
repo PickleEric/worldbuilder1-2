@@ -1,10 +1,12 @@
-import React, { useState } from "react";
-import { auth, firestore } from "./firebase";
+import React, { useState, useEffect } from "react";
+import { auth, firestore } from "../firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import firebase from "firebase/app"
 
 const Login = () => {
-  const [user, loading, error] = useAuthState(auth);
+  const authState = useAuthState(auth);
+  const [user, loading, error] = authState || [];
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [displayName, setDisplayName] = useState("");
@@ -29,6 +31,19 @@ const Login = () => {
       console.error(error);
     }
   };
+
+  // Add useEffect hook to listen for changes in user authentication state
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((currentUser) => {
+      if (currentUser) {
+        console.log("User is signed in.");
+      } else {
+        console.log("No user is signed in.");
+      }
+    });
+
+    return unsubscribe;
+  }, []);
 
   if (loading) {
     return <div>Loading...</div>;
@@ -72,3 +87,6 @@ const Login = () => {
 };
 
 export default Login;
+
+
+

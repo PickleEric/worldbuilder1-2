@@ -15,8 +15,9 @@ const pageLinks = [
     { text: "Server Side Rendering", url: "using-ssr" },
     { text: "Deferred Static Generation", url: "using-dsg" },
   ]
+//Fuction to display array 
 const navbar = () =>{
-    PageLinks.map((link, i) => (
+    pageLinks.map((link, i) => (
     <React.Fragment key={link.url}>
       <Link to={link.url}>{link.text}</Link>
       {i !== samplePageLinks.length - 1 && <> · </>}

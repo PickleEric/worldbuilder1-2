@@ -1,15 +1,20 @@
-import firebase from 'firebase/app';
-import 'firebase/auth';
+import { initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: 'YOUR_API_KEY',
-  authDomain: 'YOUR_AUTH_DOMAIN',
-  projectId: 'YOUR_PROJECT_ID',
-  storageBucket: 'YOUR_STORAGE_BUCKET',
-  messagingSenderId: 'YOUR_SENDER_ID',
-  appId: 'YOUR_APP_ID',
+  apiKey: "AIzaSyDq395dneVL9Iu2yxGb57hrTH-1XePpVzg",
+  authDomain: "worldbuilder1-2.firebaseapp.com",
+  projectId: "worldbuilder1-2",
+  storageBucket: "worldbuilder1-2.appspot.com",
+  messagingSenderId: "47459418993",
+  appId: "1:47459418993:web:8f68cc617bc5df20642cd0",
+  measurementId: "G-Q86CE71Y6N"
 };
 
-firebase.initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
 
-export const auth = firebase.auth();
+const auth = getAuth(app);
+const firestore = getFirestore(app);
+
+export { auth, firestore };

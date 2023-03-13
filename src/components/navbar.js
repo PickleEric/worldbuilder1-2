@@ -20,7 +20,7 @@ const Navbar = () =>{
     pageLinks.map((link, i) => (
     <React.Fragment key={link.url}>
       <Link to={link.url}>{link.text}</Link>
-      {i !== samplePageLinks.length - 1 && <> · </>}
+      {i !== pageLinks.length - 1 && <> · </>}
     </React.Fragment>
   ))}
 

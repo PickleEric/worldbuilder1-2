@@ -16,12 +16,18 @@ const pageLinks = [
     { text: "Deferred Static Generation", url: "using-dsg" },
   ]
 //Fuction to display array 
-const Navbar = () =>{
-    pageLinks.map((link, i) => (
-    <React.Fragment key={link.url}>
-      <Link to={link.url}>{link.text}</Link>
-      {i !== pageLinks.length - 1 && <> · </>}
-    </React.Fragment>
-  ))}
+const Navbar = () => {
+    return (
+      <nav>
+        <ul>
+          {pageLinks.map((link) => (
+            <li key={link.url}>
+              <Link to={link.url}>{link.text}</Link>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    )
+  }
 
   export default Navbar

@@ -23,6 +23,25 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    {
+      resolve: "gatsby-theme-navbar",
+      options: {
+        links: [
+          {
+            text: "Home",
+            url: "/",
+          },
+          {
+            text: "About",
+            url: "/about",
+          },
+          {
+            text: "Blog",
+            url: "/blog",
+          },
+        ],
+      },
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {

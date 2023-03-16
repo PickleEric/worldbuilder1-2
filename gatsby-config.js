@@ -33,12 +33,12 @@ module.exports = {
             url: "/",
           },
           {
-            text: "About",
-            url: "/about",
+            text: "Page 2",
+            url: "/page-2",
           },
           {
-            text: "Blog",
-            url: "/blog",
+            text: "Using-ssr",
+            url: "/using-ssr",
           },
         ],
       },

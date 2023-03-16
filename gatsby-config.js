@@ -15,7 +15,7 @@ module.exports = {
     siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
   },
   plugins: [
-    "gatsby-plugin-sitemap",
+    `gatsby-plugin-sitemap`,
     `gatsby-plugin-image`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -25,7 +25,7 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-theme-navbar",
+      resolve: `gatsby-plugin-sitemap`,
       options: {
         links: [
           {

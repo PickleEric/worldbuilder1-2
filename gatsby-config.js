@@ -15,32 +15,13 @@ module.exports = {
     siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
   },
   plugins: [
-    `gatsby-plugin-sitemap`,
+    
     `gatsby-plugin-image`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
         path: `${__dirname}/src/images`,
-      },
-    },
-    {
-      resolve: `gatsby-plugin-sitemap`,
-      options: {
-        links: [
-          {
-            text: "Home",
-            url: "/",
-          },
-          {
-            text: "Page 2",
-            url: "/page-2",
-          },
-          {
-            text: "Using-ssr",
-            url: "/using-ssr",
-          },
-        ],
       },
     },
     `gatsby-transformer-sharp`,

@@ -4,7 +4,7 @@ import Layout from "../components/layout"
 import Seo from "../components/seo"
 import * as styles from "../components/index.module.css"
 import Login from "../components/login"
-
+import Navbar from "../components/navbar"
 
 const links = [
   {
